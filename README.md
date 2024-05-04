@@ -1,59 +1,67 @@
-Overview
-This Python project is designed to predict cryptocurrency prices using deep learning techniques. The code leverages the TensorFlow and Keras libraries to construct a recurrent neural network (RNN) that uses LSTM (Long Short-Term Memory) layers to process sequential data for the prediction of cryptocurrency price movements.
+Meine Frage:
+change the format for readme file
 
-Libraries and Tools Used
-- TensorFlow & Keras: To build and train the deep learning model.
-- Pandas: For data manipulation and ingestion.
-- NumPy: For numerical operations.
-- Scikit-Learn: For preprocessing data scales.
+KI Antwort:
+# Cryptocurrency Price Prediction README
 
-Data
-The model is trained on a dataset assumed to be stored under `DataSet/BTTUSDT-formated.csv`. This dataset should have at least one column named `price` which represents the price of the cryptocurrency.
+## Overview
+This Python project aims to predict cryptocurrency prices using deep learning. It employs TensorFlow and Keras libraries to build a recurrent neural network (RNN) with LSTM (Long Short-Term Memory) layers. The project is principally intended for educational purposes to demonstrate the application of RNNs in financial predictions.
 
-Features of the Code
-1. Data Preprocessing:
-   - Future price columns and targeted price shifts are created.
-   - The dataset is split into a training set and a validation set.
-   - Data normalization and scaling are applied to assist effective model training.
+## Libraries and Tools Used
+- TensorFlow & Keras: For constructing and training the deep learning model.
+- Pandas: To manipulate and ingest data.
+- NumPy: For handling numerical operations.
+- Scikit-Learn: Used for scaling and preprocessing data.
+- os and Time: For managing file paths and timing events.
 
-2. Model Architecture:
-   - The network consists of three LSTM layers, complemented with Dropout and Batch Normalization to prevent overfitting and ensure faster convergence.
-   - The final output is processed through softmax activation function in the dense layer for classification into two classes (buy and sell signals).
+## Data
+The dataset, presumably named `BTTUSDT-formated.csv`, should feature a 'price' column, representing the cryptocurrency's price, which is critical for training the model.
 
-3. Training:
-   - The model is trained using the Adam optimizer, with a focus on minimizing the sparse categorical cross-entropy loss.
-   - The training process is managed with callbacks including tensor checkpoints for model saving based on validation accuracy.
+## Features of the Code
 
-4. Validation and Testing:
-   - Post training, the model is evaluated using the separate validation dataset to ensure that it generalizes well to new data.
+Data Preprocessing
+- Feature Construction: Future price prediction columns are generated.
+- Normalization: Application of percentage change and scaling to normalize the dataset.
+- Splitting: Data is divided into training and validation sets.
 
-Usage
+Model Architecture
+- Layers: Three LSTM layers are used, interspersed with Dropout layers and Batch Normalization to prevent overfitting.
+- Output: A softmax activation function determines buy or sell signals from two classes.
 
-1. Environment Setup:
-   - Ensure that Python 3.x is installed along with the libraries mentioned.
-   - Install the required packages using pip:
+Training
+- Optimizer: Adam optimizer minimizes sparse categorical cross-entropy.
+- Callbacks: Include model checkpoints to save the best models based on validation accuracy.
 
-     
-     pip install tensorflow pandas numpy scikit-learn
-     
+Validation and Testing
+- Post-training evaluation uses a separate validation set.
 
-2. Running the Code:
-   - Place the dataset in the proper directory as mentioned (`DataSet/BTTUSDT-formated.csv`).
-   - Adjust the sequence length, future prediction offset, and other parameters as required.
-   - Run the script to begin training and subsequently evaluate the model.
+## Usage
 
-3. Output:
-   - Model weights and configurations are saved in the `models` directory configured in the script.
-   - During run-time, training and validation metrics are printed to track progress.
-   - Final metrics including loss and accuracy are outputted after evaluation on the validation set.
+Environment Setup
+bash
+# Ensure Python 3.x and required packages are installed
+pip install tensorflow pandas numpy scikit-learn
 
-Model Performance and Improvements
-- Monitor the "Test loss" and "Test accuracy" metrics to evaluate model performance.
-- For better performance, consider tuning hyperparameters such as `EPOCHS`, `BATCH_SIZE`, and learning rate.
-- More advanced LSTM configurations or adding more data might help in reducing overfitting and improving prediction accuracy.
 
-Note
-This script assumes that proper data formatting and preprocessing are handled in the input CSV file. Ensure that the data provided correctly aligns with these expectations, particularly in terms of the sequence generation for LSTM input.
+Running the Code
+- Store your dataset in the designated directory (`DataSet/`).
+- Adjust parameters like `SEQ_LENGTH`, `FUTURE_PRIDICT`, as needed for your dataset.
+- Execute the script to start training the model and evaluate its performance.
 
-Disclaimer
-This model and its code serve as a basic demonstration for educational purposes only. Cryptocurrency markets are highly volatile, and financial investments should be made carefully and not based on this model’s output alone.
+Output
+- Model configurations and weights are saved in the `models/` directory.
+- Real-time metrics for training and validation are displayed during execution.
+- Final loss and accuracy metrics are provided after testing on the validation data.
+
+## Model Performance and Improvements
+- Monitor test loss and accuracy to assess the model.
+- Hyperparameter tuning (e.g., `EPOCHS`, `BATCH_SIZE`) may enhance performance.
+- Consider more complex LSTM structures or enriching the dataset to reduce overfitting.
+
+## Disclaimer
+This model is for educational use only and not for actual trading. Financial decisions should not be based on this model due to the inherent volatility of cryptocurrency markets.
+
+## Note
+Ensure data formatting aligns with the script's requirements, especially in terms of sequence generation for LSTM input. Adjustments may be necessary depending on the original dataset's structure.
+
+This README format structures information logically for clarity, guiding the user from an overview to detailed instructions and considerations for using the cryptocurrency prediction model efficiently.
