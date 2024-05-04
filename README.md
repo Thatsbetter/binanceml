@@ -1,9 +1,3 @@
-Meine Frage:
-change the format for readme file
-
-KI Antwort:
-# Cryptocurrency Price Prediction README
-
 ## Overview
 This Python project aims to predict cryptocurrency prices using deep learning. It employs TensorFlow and Keras libraries to build a recurrent neural network (RNN) with LSTM (Long Short-Term Memory) layers. The project is principally intended for educational purposes to demonstrate the application of RNNs in financial predictions.
 
